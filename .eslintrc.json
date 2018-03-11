@@ -1,0 +1,7 @@
+{
+  "extends": "hamcompe",
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}
