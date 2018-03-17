@@ -29,6 +29,7 @@ const arrToObj = arr => arr.reduce((result, item) => ({ ...result, [item.key]: i
 
 class Page extends React.PureComponent {
   static async getInitialProps({ query: { id } }) {
+    if (!id) return {}
     const showtimesResponse = await ShowtimeService.getShowtimes(id)
     const movies = getData(showtimesResponse)
     const movieIds = mapUniqueMovieTitle(movies)
