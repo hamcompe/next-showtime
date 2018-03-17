@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import '../css'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -13,7 +14,8 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>My page</title>
+          <title>Next Showtime</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           {this.props.styleTags}
         </Head>
         <body>
