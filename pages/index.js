@@ -1,6 +1,7 @@
 import React from 'react'
 import { path, filter } from 'ramda'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import ShowtimeService from '../lib/ShowtimeService'
 import LinkHighlight from '../components/LinkHighlight'
@@ -32,7 +33,9 @@ class Page extends React.Component {
         <ListWrapper>
           {favorite.map(item => (
             <div key={item.id}>
-              <LinkHighlight href={`/show?id=${item.id}`}>{item.english}</LinkHighlight>
+              <Link href={{ pathname: '/show', query: { id: item.id } }} passHref>
+                <LinkHighlight>{item.english}</LinkHighlight>
+              </Link>
             </div>
           ))}
         </ListWrapper>
@@ -41,6 +44,9 @@ class Page extends React.Component {
         <ListWrapper>
           {data.map(item => (
             <div key={item.id}>
+              {/* <Link href={`/show?id=${item.id}`}>
+                <LinkHighlight>{item.english}</LinkHighlight>
+              </Link> */}
               <LinkHighlight href={`/show?id=${item.id}`}>{item.english}</LinkHighlight>
             </div>
           ))}

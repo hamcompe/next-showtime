@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.a`
+  cursor: pointer;
   border-bottom: 1px solid #0068ef;
   transition: all 0.3s ease;
   outline: 1rem solid hsla(199, 28%, 24%, 0);
