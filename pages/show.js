@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { path, uniq, prop, map, pipe } from 'ramda'
+import { uniq, prop, map, pipe } from 'ramda'
 import { format } from 'date-fns'
 
 import MovieCard from '../components/MovieCard'
@@ -9,7 +9,7 @@ import ShowtimeService from '../lib/ShowtimeService'
 import MainLayout from '../layouts/MainLayout'
 import { generateKeyWrapper } from '../lib/helpers'
 
-const getData = path(['data', 'results'])
+const getData = prop('results')
 const displayToday = (formatStr = 'dddd D MMMM') => format(new Date(), formatStr)
 
 const MovieListLayout = styled.div``
@@ -38,8 +38,8 @@ class Page extends React.PureComponent {
       return {
         key: movieTitle,
         value: {
-          id: omdb.imdbID,
-          rating: omdb.imdbRating,
+          id: prop('imdbID')(omdb),
+          rating: prop('imdbRating')(omdb),
         },
       }
     }))

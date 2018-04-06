@@ -29,9 +29,7 @@ const displayWithHyphen = displaySeperateWith(' - ')
 
 const displayImdb = obj =>
   (notValue(obj) ? (
-    <LinkHighlight href={`http://www.imdb.com/title/${obj.id}`}>
-      imdb: {obj.rating}/10
-    </LinkHighlight>
+    <LinkHighlight href={`http://www.imdb.com/title/${obj.id}`}>imdb: {obj.rating}</LinkHighlight>
   ) : null)
 
 MovieCard.defaultProps = {

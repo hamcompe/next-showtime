@@ -1,5 +1,5 @@
 import React from 'react'
-import { path, filter } from 'ramda'
+import { prop, filter } from 'ramda'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -7,7 +7,7 @@ import ShowtimeService from '../lib/ShowtimeService'
 import LinkHighlight from '../components/LinkHighlight'
 import MainLayout from '../layouts/MainLayout'
 
-const getResult = path(['data', 'results'])
+const getResult = prop('results')
 
 const MY_FAVORITES = [2, 121]
 const idInMyFavorite = (obj = {}) => MY_FAVORITES.indexOf(obj.id) > -1
@@ -31,9 +31,10 @@ class Page extends React.Component {
       <MainLayout>
         <h1>Favorite</h1>
         <ListWrapper>
+          <LinkHighlight href="/show?id=2">test click here</LinkHighlight>
           {favorite.map(item => (
             <div key={item.id}>
-              <Link href={{ pathname: '/show', query: { id: item.id } }} passHref>
+              <Link prefetch href={{ pathname: '/show', query: { id: item.id } }} passHref>
                 <LinkHighlight>{item.english}</LinkHighlight>
               </Link>
             </div>
@@ -44,10 +45,9 @@ class Page extends React.Component {
         <ListWrapper>
           {data.map(item => (
             <div key={item.id}>
-              {/* <Link href={`/show?id=${item.id}`}>
+              <Link prefetch href={{ pathname: '/show', query: { id: item.id } }} passHref>
                 <LinkHighlight>{item.english}</LinkHighlight>
-              </Link> */}
-              <LinkHighlight href={`/show?id=${item.id}`}>{item.english}</LinkHighlight>
+              </Link>
             </div>
           ))}
         </ListWrapper>
