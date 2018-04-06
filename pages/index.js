@@ -31,7 +31,6 @@ class Page extends React.Component {
       <MainLayout>
         <h1>Favorite</h1>
         <ListWrapper>
-          <LinkHighlight href="/show?id=2">test click here</LinkHighlight>
           {favorite.map(item => (
             <div key={item.id}>
               <Link prefetch href={{ pathname: '/show', query: { id: item.id } }} passHref>
