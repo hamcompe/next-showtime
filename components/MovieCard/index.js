@@ -12,6 +12,7 @@ import {
 } from './style'
 import LinkHighlight from '../LinkHighlight'
 import { generateKeyWrapper } from '../../lib/helpers'
+import withImageSource from '../../hocs/withImageSource'
 
 const getShowtimes = propOr([], 'showtimes')
 const displayPostfix = postfix => data => (data == null ? '' : `${data} ${postfix}`)
@@ -35,23 +36,23 @@ const displayImdb = obj =>
 MovieCard.defaultProps = {
   data: {},
 }
-function MovieCard({ data }) {
+function MovieCard({ data, imageSource }) {
   const showtimes = generateKeyWrapper(getShowtimes(data))
 
   return (
     <Card>
       <MovieLayout>
-        <MoviePoster src={data.movie_poster}>
-          <img src={data.movie_poster} alt="" />
+        <MoviePoster>
+          <img src={imageSource} alt="" />
         </MoviePoster>
         <MovieDescription>
           <MovieTitle>
-            <LinkHighlight href={googleSearch(data.movie_title)} target="_blank">
-              {data.movie_title}
+            <LinkHighlight href={googleSearch(data.movieTitle)} target="_blank">
+              {data.movieTitle}
             </LinkHighlight>
           </MovieTitle>
           <MovieInfo>
-            <div>{displayWithHyphen([displayDuration(data.movie_duration), data.technology])}</div>
+            <div>{displayWithHyphen([displayDuration(data.movieDuration), data.technology])}</div>
             <div>{displayWithHyphen([toUpper(data.audio), data.cinema])}</div>
             <div>{displayImdb(data.imdb)}</div>
           </MovieInfo>
@@ -64,4 +65,4 @@ function MovieCard({ data }) {
   )
 }
 
-export default MovieCard
+export default withImageSource(MovieCard)

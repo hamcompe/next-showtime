@@ -1,62 +1,12 @@
 import React from 'react'
-import { prop, filter } from 'ramda'
-import styled from 'styled-components'
-import Link from 'next/link'
-
-import ShowtimeService from '../lib/ShowtimeService'
-import LinkHighlight from '../components/LinkHighlight'
-import MainLayout from '../layouts/MainLayout'
-
-const getResult = prop('results')
-
-const MY_FAVORITES = [2, 121]
-const idInMyFavorite = (obj = {}) => MY_FAVORITES.indexOf(obj.id) > -1
-const filterFavorite = filter(idInMyFavorite)
-
-const ListWrapper = styled.div`
-  line-height: 1.5;
-`
 
 class Page extends React.Component {
-  static async getInitialProps() {
-    const response = await ShowtimeService.getTheaters()
-    const data = getResult(response)
-    const favoriteTheaters = filterFavorite(data)
-    return { data, favorite: favoriteTheaters }
+  componentDidMount() {
+    window.location.href = 'dashboard'
   }
-
   render() {
-    const { data, favorite } = this.props
-    return (
-      <MainLayout>
-        <h1>Favorite</h1>
-        <ListWrapper>
-          {favorite.map(item => (
-            <div key={item.id}>
-              <Link prefetch href={{ pathname: '/show', query: { id: item.id } }} passHref>
-                <LinkHighlight>{item.english}</LinkHighlight>
-              </Link>
-            </div>
-          ))}
-        </ListWrapper>
-        <br />
-        <h1>List</h1>
-        <ListWrapper>
-          {data.map(item => (
-            <div key={item.id}>
-              <Link prefetch href={{ pathname: '/show', query: { id: item.id } }} passHref>
-                <LinkHighlight>{item.english}</LinkHighlight>
-              </Link>
-            </div>
-          ))}
-        </ListWrapper>
-      </MainLayout>
-    )
+    return null
   }
-}
-Page.defaultProps = {
-  data: [],
-  favorite: [],
 }
 
 export default Page
