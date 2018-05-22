@@ -15,7 +15,7 @@ class PureTheaterSelection extends React.Component {
     push({ pathname, query: { ...query, theater: data.target.value } })
   }
   render() {
-    const { data = [], router: { query: { theater } } } = this.props
+    const { data = [], router: { query: { theater } = {} } } = this.props
     return (
       <Select onChange={this.handleSelect} value={theater}>
         {data.map((item = {}) => (

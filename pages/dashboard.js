@@ -9,7 +9,7 @@ import HomePage from '../components/HomePage'
 
 class Page extends React.Component {
   getCurrentTheater = () => {
-    const { hits = [], router: { query: { theater } } } = this.props
+    const { hits = [], router: { query: { theater } = {} } } = this.props
     if (!theater) return hits[0]
     return hits.find(obj => obj.objectID === theater)
   }
@@ -18,7 +18,7 @@ class Page extends React.Component {
     if (!currentTheater) {
       return null
     }
-    const { router: { query: { movie } } } = this.props
+    const { router: { query: { movie } = {} } } = this.props
     const currentShowtimeList = propOr([], 'showtimeList')(currentTheater)
     const currentMovieShowtimeList = currentShowtimeList.filter(obj => obj.movieId === +movie)
 
@@ -52,18 +52,18 @@ class Page extends React.Component {
   getOtherMovieIds = () => {
     const currentTheater = this.getCurrentTheater()
     if (!currentTheater) return null
-    const { router: { query: { movie } } } = this.props
+    const { router: { query: { movie } = {} } } = this.props
 
     const allMovieIds = propOr([], 'showtimeList')(currentTheater).map(obj => obj.movieId)
     return uniq(allMovieIds).filter(id => id !== +movie)
   }
 
   isSelectMovie = () => {
-    const { router: { query: { movie } } } = this.props
+    const { router: { query: { movie } = {} } } = this.props
     return !!movie
   }
   isSelectTheater = () => {
-    const { router: { query: { theater } } } = this.props
+    const { router: { query: { theater } = {} } } = this.props
     return !!theater
   }
   getCurrentTheaterMovies = () => {
