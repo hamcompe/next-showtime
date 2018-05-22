@@ -1860,9 +1860,9 @@ eslint-config-airbnb@^16.1.0:
   dependencies:
     eslint-config-airbnb-base "^12.1.0"
 
-eslint-config-hamcompe@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/eslint-config-hamcompe/-/eslint-config-hamcompe-1.0.8.tgz#7c2524ad3f1ace42c35243c13d567109f5a8800a"
+eslint-config-hamcompe@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/eslint-config-hamcompe/-/eslint-config-hamcompe-1.0.9.tgz#2de2dafffd459e3a80a87a2c1ab6ce17db045a1a"
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
