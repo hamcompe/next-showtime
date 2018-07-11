@@ -16,7 +16,7 @@ const LinkButton = styled.a`
   align-content: center;
   align-self: center;
   display: flex;
-  padding: 12px;
+  padding: 16px;
   align-items: center;
   line-height: 1.3;
   background: ${colors.grey};

@@ -10,8 +10,8 @@ const Navbar = styled.div`
   display: flex;
   height: ${NAVBAR_SPACE};
   align-items: center;
-  background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 25px 40px 0 hsla(0, 0%, 0%, 0.03);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 `
 const OffsetSpace = styled.div`
   height: ${NAVBAR_SPACE};

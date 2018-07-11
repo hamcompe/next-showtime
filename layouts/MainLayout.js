@@ -8,7 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
 `
 const Wrapper = styled.div`
-  padding: 0 12px;
+  padding: 0 16px;
 `
 
 function Layout({ children }) {

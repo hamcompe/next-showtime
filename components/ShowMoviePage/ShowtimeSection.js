@@ -26,7 +26,7 @@ const TimeBox = styled.div`
   display: flex;
   align-items: center;
   background: ${colors.grey};
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 6px;
   margin: 6px;
 `
@@ -46,7 +46,7 @@ const EmojiSpan = styled.span.attrs({
   margin-right: 4px;
 `
 const ShowtimeCinemaInfoWrapper = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 `
 const ShowtimeItem = ({
   cinema, extra, audio, is3d, showtimes, technology,
@@ -60,7 +60,12 @@ const ShowtimeItem = ({
             cinema: {cinema}
           </InformationLabel>
         )}
-        {extra && <InformationLabel>extra: {extra}</InformationLabel>}
+        {extra && (
+          <InformationLabel>
+            extra:
+            {extra}
+          </InformationLabel>
+        )}
       </Row>
       <Row>
         {audio && (
