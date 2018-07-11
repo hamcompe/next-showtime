@@ -1,10 +1,6 @@
 build:
 	yarn build
 export:
-	yarn export -o docs
-provide-deploy-stuff:
-	git checkout docs/CNAME && git checkout docs/.nojekyll
-commit:
-	git add docs && git commit -m '🚀 Launch site' && git push origin HEAD
+	yarn export
 
-deploy: build export provide-deploy-stuff commit
+deploy: build export
